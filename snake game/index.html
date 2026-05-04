@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snake Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <section class="hero-card">
+      <p class="eyebrow">Classic arcade bite</p>
+      <h1>Snake Game</h1>
+      <p class="intro">Eat the glowing apples, grow longer, and avoid crashing into yourself. Simple rules, dangerous confidence.</p>
+
+      <div class="scoreboard" aria-label="Game scores">
+        <div>
+          <span>Score</span>
+          <strong id="score">0</strong>
+        </div>
+        <div>
+          <span>Best</span>
+          <strong id="best-score">0</strong>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="start-btn" type="button">Start Game</button>
+        <button id="pause-btn" type="button">Pause</button>
+      </div>
+
+      <p class="hint">Move with arrow keys or WASD. Press Space to pause.</p>
+    </section>
+
+    <section class="board-wrap" aria-label="Snake game board">
+      <canvas id="game-board" width="480" height="480"></canvas>
+      <div id="message" class="message">Press Start to Play</div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InsightForge BI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">IF</div>
+        <div>
+          <p class="eyebrow">Mini PowerBI Studio</p>
+          <h1>InsightForge</h1>
+        </div>
+      </div>
+
+      <section class="panel upload-panel">
+        <h2>Data Source</h2>
+        <label class="file-drop" for="csvInput">
+          <input id="csvInput" type="file" accept=".csv" />
+          <span>Drop or choose CSV</span>
+          <small>Or use the demo sales data below</small>
+        </label>
+        <button id="loadDemo" class="primary-btn">Load Demo Data</button>
+      </section>
+
+      <section class="panel">
+        <h2>Visual Builder</h2>
+        <label>
+          Chart Type
+          <select id="chartType">
+            <option value="bar">Bar Chart</option>
+            <option value="line">Line Chart</option>
+            <option value="pie">Donut Chart</option>
+            <option value="scatter">Scatter Plot</option>
+          </select>
+        </label>
+        <label>
+          Category / X Axis
+          <select id="xField"></select>
+        </label>
+        <label>
+          Value / Y Axis
+          <select id="yField"></select>
+        </label>
+        <label>
+          Aggregation
+          <select id="aggregation">
+            <option value="sum">Sum</option>
+            <option value="avg">Average</option>
+            <option value="count">Count</option>
+            <option value="min">Minimum</option>
+            <option value="max">Maximum</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="panel">
+        <h2>Filters</h2>
+        <label>
+          Filter Field
+          <select id="filterField"></select>
+        </label>
+        <label>
+          Contains
+          <input id="filterValue" type="text" placeholder="Type to filter rows" />
+        </label>
+        <button id="clearFilter" class="ghost-btn">Clear Filter</button>
+      </section>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Interactive Report</p>
+          <h2 id="reportTitle">Executive Overview</h2>
+        </div>
+        <div class="topbar-actions">
+          <button id="downloadData" class="ghost-btn">Export Filtered CSV</button>
+          <button id="resetReport" class="primary-btn">Reset Report</button>
+        </div>
+      </header>
+
+      <section class="kpi-grid" id="kpiGrid"></section>
+
+      <section class="dashboard-grid">
+        <article class="visual-card main-visual">
+          <div class="card-header">
+            <div>
+              <p class="eyebrow">Visualization</p>
+              <h3 id="chartTitle">Sales by Region</h3>
+            </div>
+            <span id="rowCount" class="pill">0 rows</span>
+          </div>
+          <div class="canvas-wrap">
+            <canvas id="chartCanvas" width="1200" height="620"></canvas>
+          </div>
+        </article>
+
+        <article class="visual-card fields-card">
+          <div class="card-header">
+            <div>
+              <p class="eyebrow">Schema</p>
+              <h3>Fields</h3>
+            </div>
+          </div>
+          <div id="fieldList" class="field-list"></div>
+        </article>
+      </section>
+
+      <section class="visual-card table-card">
+        <div class="card-header">
+          <div>
+            <p class="eyebrow">Rows</p>
+            <h3>Data Preview</h3>
+          </div>
+          <span id="previewMeta" class="pill">Preview</span>
+        </div>
+        <div class="table-wrap">
+          <table id="dataTable"></table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

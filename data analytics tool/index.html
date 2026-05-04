@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataScope Analytics Tool</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div>
+      <p class="eyebrow">DataScope</p>
+      <h1>Analytics Tool</h1>
+    </div>
+
+    <label class="file-picker">
+      <span>Upload CSV</span>
+      <input id="csvFile" type="file" accept=".csv,text/csv">
+    </label>
+
+    <button id="sampleBtn" type="button">Load sample data</button>
+    <button id="exportBtn" type="button">Export filtered CSV</button>
+
+    <div class="control-group">
+      <label for="searchInput">Search</label>
+      <input id="searchInput" type="search" placeholder="Filter rows...">
+    </div>
+
+    <div class="control-group">
+      <label for="groupColumn">Group by</label>
+      <select id="groupColumn"></select>
+    </div>
+
+    <div class="control-group">
+      <label for="metricColumn">Metric</label>
+      <select id="metricColumn"></select>
+    </div>
+
+    <div class="control-group">
+      <label for="chartType">Chart</label>
+      <select id="chartType">
+        <option value="bar">Bar</option>
+        <option value="line">Line</option>
+        <option value="pie">Pie</option>
+      </select>
+    </div>
+
+    <label class="toggle">
+      <input id="darkMode" type="checkbox">
+      <span>Dark mode</span>
+    </label>
+  </aside>
+
+  <main>
+    <section class="topbar">
+      <div>
+        <p class="eyebrow">Workspace</p>
+        <h2 id="datasetName">Sample business data</h2>
+      </div>
+      <div class="status" id="statusText">Ready</div>
+    </section>
+
+    <section class="kpi-grid" id="kpiGrid"></section>
+
+    <section class="work-grid">
+      <div class="panel chart-panel">
+        <div class="panel-head">
+          <h3>Visual Analysis</h3>
+          <p id="chartCaption">Grouped totals</p>
+        </div>
+        <canvas id="mainChart" height="280"></canvas>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Insights</h3>
+          <p>Fast readout</p>
+        </div>
+        <ul class="insights" id="insightsList"></ul>
+      </div>
+    </section>
+
+    <section class="work-grid">
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Correlation Matrix</h3>
+          <p>Numeric columns</p>
+        </div>
+        <div class="matrix" id="correlationMatrix"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h3>Outliers</h3>
+          <p>Z-score over 2</p>
+        </div>
+        <div class="outliers" id="outlierList"></div>
+      </div>
+    </section>
+
+    <section class="panel table-panel">
+      <div class="panel-head">
+        <h3>Data Table</h3>
+        <p id="rowCount">0 rows</p>
+      </div>
+      <div class="table-wrap">
+        <table id="dataTable"></table>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
